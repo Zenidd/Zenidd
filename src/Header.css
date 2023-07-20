@@ -1,8 +1,20 @@
+/* Add borders to the header */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: rgba(12, 12, 12, 0.8);
   backdrop-filter: blur(10px);
   padding: 10px 20px;
-  
+  z-index: 9999;
+  border-bottom: 2px solid rgb(97, 218, 251); /* Add a border at the bottom */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Add a wrapper div for the nav to control the border */
+.nav-wrapper {
+  border: 2px solid rgb(97, 218, 251); /* Add a border around the nav */
 }
 
 .nav {
@@ -14,7 +26,7 @@
 .nav-list {
   display: flex;
   list-style-type: none;
-  padding: 0px;  
+  padding: 0;
 }
 
 .nav-item {
@@ -22,17 +34,40 @@
 }
 
 .nav-link {
+  position: relative;
   color: rgb(230, 230, 230);
   text-decoration: none;
   padding: 5px 20px;
   font-weight: 800;
   transition: color 300ms, box-shadow 300ms ease-in-out;
+}
 
+.nav-link:before,
+.nav-link:after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(97, 218, 251);
+  transform: scaleX(0);
+  transition: transform 300ms ease-in-out;
+}
+
+.nav-link:before {
+  transform-origin: left;
+}
+
+.nav-link:after {
+  transform-origin: right;
 }
 
 .nav-link:hover {
   color: white;
-  box-shadow: 0 0 20px rgba(97, 218, 251, 0.67);
+}
 
-
+.nav-link:hover:before,
+.nav-link:hover:after {
+  transform: scaleX(1);
 }

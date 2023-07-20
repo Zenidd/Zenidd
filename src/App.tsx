@@ -19,7 +19,7 @@ function App() {
         Currently following the DevOps path 🎋.
         </p>
       </div>
-
+    
 
         <a href="https://www.linkedin.com/in/juanpablosaezgutierrez/" target="_blank">
           <img src={linkedinLogo} className="logo" alt="LinkedIn logo" />
